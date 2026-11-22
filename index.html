@@ -2,36 +2,84 @@
 <html lang="zh">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>云杉银行 · 理财限时抢购</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f6b4f">
+  <title>云杉银行 · 财富</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="phone">
+  <!-- 顶部 -->
   <header class="top">
-    <div class="brand"><span class="logo">杉</span>云杉银行 <small>Spruce Bank</small></div>
-    <nav><a href="#">首页</a><a href="#" class="on">理财</a><a href="#">基金</a><a href="#">我的</a></nav>
+    <div class="top-row">
+      <span class="city">首尔 <i class="caret"></i></span>
+      <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input placeholder="搜索理财 / 基金 / 功能"></label>
+      <button class="icon-btn" aria-label="扫一扫"><svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M4 12h16"/></svg></button>
+      <button class="icon-btn badge" aria-label="消息"><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8M10 20a2 2 0 0 0 4 0"/></svg></button>
+    </div>
+
+    <!-- 资产卡片 -->
+    <section class="asset">
+      <div class="asset-head"><span>总资产（元）</span><button class="eye" id="eye" aria-label="显示或隐藏金额"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+      <div class="asset-num" data-v="128,560.32">128,560.32</div>
+      <div class="asset-sub"><span>昨日收益 <b class="up" data-v="+12.86">+12.86</b></span><span>累计收益 <b data-v="3,215.40">3,215.40</b></span></div>
+    </section>
   </header>
 
-  <section class="hero">
-    <h1>周年庆 · 理财限时抢购</h1>
-    <p>精选稳健产品，限量发售，先到先得</p>
-    <div class="countdown" id="countdown">距离本场结束 <b id="cd">--:--:--</b></div>
+  <main>
+    <!-- 金刚区 -->
+    <nav class="grid" id="grid"></nav>
+
+    <!-- 公告 -->
+    <div class="notice"><span class="notice-tag">公告</span><div class="notice-roll" id="notice"></div></div>
+
+    <!-- 轮播 -->
+    <section class="banner" id="banner">
+      <div class="slides" id="slides"></div>
+      <div class="dots" id="dots"></div>
+    </section>
+
+    <!-- 限时抢购 -->
+    <section class="block">
+      <div class="block-head">
+        <h2>限时抢购 <span class="fire">周年庆</span></h2>
+        <div class="countdown">距结束 <span id="cd-h">00</span>:<span id="cd-m">00</span>:<span id="cd-s">00</span></div>
+      </div>
+      <div class="flash" id="flash"></div>
+    </section>
+
+    <!-- 精选理财 -->
+    <section class="block">
+      <div class="block-head"><h2>精选理财</h2><a class="more" href="#">更多 ›</a></div>
+      <div class="tabs" id="tabs"><button class="on" data-k="all">全部</button><button data-k="low">稳健低波</button><button data-k="mid">进阶收益</button></div>
+      <ul class="list" id="list"></ul>
+    </section>
+
+    <p class="risk">理财非存款，产品有风险，投资须谨慎。<br>本页面为课堂演示用的虚构网站，“云杉银行”及所有产品均不存在，不涉及任何真实交易。</p>
+  </main>
+
+  <!-- 底部导航 -->
+  <nav class="tabbar">
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>首页</a>
+    <a href="#" class="on"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>财富</a>
+    <a href="#"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M8 3v3M16 3v3"/></svg>生活</a>
+    <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>我的</a>
+  </nav>
+
+  <!-- 购买弹层 -->
+  <div class="mask" id="mask"></div>
+  <section class="sheet" id="sheet" aria-hidden="true">
+    <div class="sheet-head"><h3 id="sheet-title">确认购买</h3><button class="close" id="sheet-close" aria-label="关闭">×</button></div>
+    <div class="sheet-body">
+      <div class="sheet-rate"><b id="sheet-rate">3.20%</b><span>预期年化</span></div>
+      <label class="amount">购买金额（元）<div class="stepper"><button data-d="-1000">−</button><input id="amount" inputmode="numeric" value="1000"><button data-d="1000">+</button></div></label>
+      <p class="sheet-tip" id="sheet-tip"></p>
+      <button class="confirm" id="confirm">确认购买（演示）</button>
+    </div>
   </section>
-
-  <main class="list" id="list"></main>
-
-  <section class="rules">
-    <h2>活动规则</h2>
-    <ol>
-      <li>每位用户每款产品限购一份。</li>
-      <li>库存售完即止，未抢到的用户可预约下一场。</li>
-      <li>预期年化收益率不代表实际收益，理财有风险，投资需谨慎。</li>
-    </ol>
-  </section>
-
-  <footer>本页面为课堂演示用的虚构网站，“云杉银行”及所有产品均不存在，不涉及任何真实交易。</footer>
 
   <div class="toast" id="toast"></div>
-  <script src="app.js"></script>
+</div>
+<script src="app.js"></script>
 </body>
 </html>

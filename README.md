@@ -3,8 +3,8 @@
 课堂演示 DeepSeek Super-agent 用的小项目。“云杉银行”和页面上的产品都是虚构的，不涉及任何真实交易。
 
 - `index.html`：页面结构
-- `style.css`：样式（颜色变量在文件开头的 `:root` 里）
-- `app.js`：产品数据、倒计时和抢购按钮逻辑
+- `style.css`：样式（颜色变量在文件开头的 `:root` 里，例如抢购按钮和收益率用的是 `--accent`）
+- `app.js`：所有数据（金刚区图标、公告、轮播、抢购产品、理财列表）都在文件开头，改文字或数字只需要改这里
 
 在线访问：https://sa-bot888.github.io/superagent-demo/
 
