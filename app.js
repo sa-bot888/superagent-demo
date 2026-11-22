@@ -3,11 +3,11 @@
 // ---------- 数据 ----------
 const shortcuts = [
   { name: "转账", color: "#2f80ed", icon: '<path d="M4 8h14l-4-4M20 16H6l4 4"/>' },
-  { name: "账户", color: "#0f6b4f", icon: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/>' },
+  { name: "账户", color: "#c8152d", icon: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/>' },
   { name: "理财", color: "#e8563a", icon: '<path d="M4 18 9 12l4 3 7-8"/><path d="M15 7h5v5"/>' },
   { name: "基金", color: "#f2994a", icon: '<circle cx="12" cy="12" r="8"/><path d="M12 7v10M9 9.5h4.5a1.8 1.8 0 0 1 0 3.5H10a1.8 1.8 0 0 0 0 3.5H15"/>' },
   { name: "信用卡", color: "#9b51e0", icon: '<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 14h4"/>' },
-  { name: "贷款", color: "#27ae60", icon: '<path d="M5 20V10l7-5 7 5v10"/><path d="M10 20v-5h4v5"/>' },
+  { name: "贷款", color: "#d63a4e", icon: '<path d="M5 20V10l7-5 7 5v10"/><path d="M10 20v-5h4v5"/>' },
   { name: "外汇", color: "#56ccf2", icon: '<circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3 3 13 0 16M12 4c-3 3-3 13 0 16"/>' },
   { name: "缴费", color: "#eb5757", icon: '<path d="M7 3h10v18l-2.5-1.5L12 21l-2.5-1.5L7 21z"/><path d="M10 8h4M10 12h4"/>' },
   { name: "积分", color: "#c9a45c", icon: '<path d="m12 4 2.5 5 5.5.8-4 3.9.9 5.5L12 16.6 7.1 19.2l.9-5.5-4-3.9 5.5-.8z"/>' },
@@ -21,7 +21,7 @@ const notices = [
 ];
 
 const slides = [
-  { title: "周年庆 · 理财节", text: "精选稳健产品，限量发售", cta: "立即查看", bg: "linear-gradient(120deg,#0f6b4f,#22a477)" },
+  { title: "周年庆 · 理财节", text: "精选稳健产品，限量发售", cta: "立即查看", bg: "linear-gradient(120deg,#c8152d,#d63a4e)" },
   { title: "新客专享 3.20%", text: "首次购买稳享 90 天，1000 元起", cta: "去领取", bg: "linear-gradient(120deg,#e8563a,#ff9a6b)" },
   { title: "外汇兑换 0 手续费", text: "韩元、人民币、美元实时汇率", cta: "去兑换", bg: "linear-gradient(120deg,#2f80ed,#56ccf2)" },
 ];
