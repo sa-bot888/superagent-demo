@@ -34,7 +34,7 @@ nav a.on { color: var(--brand); font-weight: 600; }
 .bar { height: 8px; background: #eef1f0; border-radius: 99px; overflow: hidden; }
 .bar i { display: block; height: 100%; background: var(--accent); }
 .stock { font-size: 12px; color: var(--muted); margin: 6px 0 14px; }
-.buy { width: 100%; padding: 12px; border: 0; border-radius: 10px; background: var(--accent); color: #fff; font-size: 16px; cursor: pointer; }
+.buy { width: 100%; padding: 12px; border: 0; border-radius: 10px; background: #d4a017; color: #fff; font-size: 16px; cursor: pointer; }
 .buy:disabled { background: #c9d1ce; cursor: not-allowed; }
 
 .rules { max-width: 960px; margin: 28px auto; padding: 0 16px; color: var(--muted); font-size: 14px; }
