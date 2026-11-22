@@ -1,9 +1,9 @@
 /* 云杉银行 · 财富频道（虚构演示页面）
    颜色都在 :root 里，改颜色只需要改这里 */
 :root {
-  --brand: #0f6b4f;
-  --brand-2: #138a65;
-  --brand-dark: #0a4d39;
+  --brand: #c8152d;
+  --brand-2: #d63a4e;
+  --brand-dark: #8f0e21;
   --accent: #e8563a;        /* 收益率、抢购按钮 */
   --gold: #c9a45c;
   --bg: #f3f5f4;
@@ -17,7 +17,7 @@
 html, body { margin: 0; }
 body {
   font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif;
-  color: var(--text); background: #dfe5e2;
+  color: var(--text); background: #e7e0e2;
 }
 button, input { font: inherit; color: inherit; }
 button { cursor: pointer; border: 0; background: none; }
@@ -52,7 +52,7 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
 main { padding: 0 12px; }
 
 /* 金刚区 */
-.grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px 4px; background: var(--card); border-radius: var(--radius); padding: 16px 6px 12px; margin-top: -0px; transform: translateY(-10px); box-shadow: 0 6px 18px rgba(15,107,79,.08); }
+.grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px 4px; background: var(--card); border-radius: var(--radius); padding: 16px 6px 12px; margin-top: -0px; transform: translateY(-10px); box-shadow: 0 6px 18px rgba(200,21,45,.10); }
 .grid a { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 12px; color: #3a4842; }
 .grid .ic { width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; color: #fff; }
 .grid .ic svg { width: 22px; height: 22px; stroke-width: 2; }
@@ -102,7 +102,7 @@ main { padding: 0 12px; }
 /* 列表 */
 .tabs { display: flex; gap: 8px; margin-bottom: 4px; }
 .tabs button { font-size: 13px; padding: 4px 12px; border-radius: 99px; background: #f2f4f3; color: var(--muted); }
-.tabs button.on { background: #e4f2ec; color: var(--brand); font-weight: 600; }
+.tabs button.on { background: #fbe9ec; color: var(--brand); font-weight: 600; }
 .list { list-style: none; margin: 0; padding: 0; }
 .list li { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .list li:last-child { border-bottom: 0; }
@@ -112,7 +112,7 @@ main { padding: 0 12px; }
 .list .m { flex: 1; min-width: 0; }
 .list .m h5 { margin: 0 0 5px; font-size: 15px; font-weight: 600; }
 .list .m p { margin: 0; font-size: 12px; color: var(--muted); display: flex; gap: 6px; flex-wrap: wrap; }
-.list .m em { font-style: normal; font-size: 11px; color: var(--brand); background: #e9f5f0; border-radius: 4px; padding: 0 5px; }
+.list .m em { font-style: normal; font-size: 11px; color: var(--brand); background: #fbe9ec; border-radius: 4px; padding: 0 5px; }
 .list .go { font-size: 13px; color: var(--brand); border: 1px solid var(--brand); border-radius: 99px; padding: 3px 12px; flex: none; }
 
 .risk { text-align: center; font-size: 11px; color: var(--muted); line-height: 1.7; margin: 16px 8px 10px; }
