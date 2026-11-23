@@ -65,11 +65,44 @@ setInterval(() => { ni = (ni + 1) % notices.length; $("notice").querySelectorAll
 $("slides").innerHTML = slides.map((s) => `<div class="slide" style="background:${s.bg}"><h3>${s.title}</h3><p>${s.text}</p><span class="cta">${s.cta}</span></div>`).join("");
 $("dots").innerHTML = slides.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("");
 let si = 0;
-setInterval(() => {
-  si = (si + 1) % slides.length;
-  $("slides").style.transform = `translateX(-${si * 100}%)`;
-  $("dots").querySelectorAll("i").forEach((d, i) => d.classList.toggle("on", i === si));
-}, 3500);
+const slidesEl = $("slides");
+const dotEls = $("dots").querySelectorAll("i");
+function goTo(i) {
+  si = ((i % slides.length) + slides.length) % slides.length;
+  slidesEl.style.transform = `translateX(-${si * 100}%)`;
+  dotEls.forEach((d, n) => d.classList.toggle("on", n === si));
+}
+let autoTimer = setInterval(() => goTo(si + 1), 3500);
+
+// 手指 / 鼠标滑动切换轮播
+let drag = null;
+slidesEl.addEventListener("pointerdown", (e) => {
+  drag = { startX: e.clientX, base: -si * slidesEl.getBoundingClientRect().width };
+  slidesEl.style.transition = "none";
+  try { slidesEl.setPointerCapture(e.pointerId); } catch (e) {}
+  clearInterval(autoTimer);
+});
+slidesEl.addEventListener("pointermove", (e) => {
+  if (!drag) return;
+  slidesEl.style.transform = `translateX(${drag.base + (e.clientX - drag.startX)}px)`;
+});
+function endDrag(e) {
+  if (!drag) return;
+  const dx = e.clientX - drag.startX;
+  drag = null;
+  slidesEl.style.transition = "";
+  if (Math.abs(dx) > 40) goTo(si + (dx < 0 ? 1 : -1));
+  else goTo(si);
+  autoTimer = setInterval(() => goTo(si + 1), 3500);
+}
+slidesEl.addEventListener("pointerup", endDrag);
+slidesEl.addEventListener("pointercancel", () => {
+  if (!drag) return;
+  drag = null;
+  slidesEl.style.transition = "";
+  goTo(si);
+  autoTimer = setInterval(() => goTo(si + 1), 3500);
+});
 
 // ---------- 限时抢购 ----------
 function renderFlash() {

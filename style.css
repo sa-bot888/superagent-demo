@@ -66,7 +66,8 @@ main { padding: 0 12px; }
 
 /* 轮播 */
 .banner { position: relative; margin-top: 12px; border-radius: var(--radius); overflow: hidden; height: 120px; }
-.slides { display: flex; height: 100%; transition: transform .6s ease; }
+.slides { display: flex; height: 100%; transition: transform .6s ease; touch-action: pan-y; cursor: grab; }
+.slides:active { cursor: grabbing; }
 .slide { flex: 0 0 100%; height: 100%; padding: 18px 20px; color: #fff; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
 .slide h3 { margin: 0 0 4px; font-size: 20px; }
 .slide p { margin: 0; font-size: 13px; opacity: .9; }
