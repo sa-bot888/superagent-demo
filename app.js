@@ -49,6 +49,21 @@ $("grid").innerHTML = shortcuts.map((s) =>
   `<a href="#" data-n="${s.name}"><span class="ic" style="background:${s.color}"><svg viewBox="0 0 24 24">${s.icon}</svg></span>${s.name}</a>`).join("");
 $("grid").addEventListener("click", (e) => { const a = e.target.closest("a"); if (a) { e.preventDefault(); toast(`「${a.dataset.n}」演示中暂未开放`); } });
 
+// ---------- 搜索提示词上下滚动 ----------
+const searchHints = ["搜索理财", "搜索基金", "搜索功能"];
+const hintBox = $("search-hint");
+hintBox.innerHTML = searchHints.map((t) => `<span>${t}</span>`).join("");
+const hintSpans = hintBox.querySelectorAll("span");
+let hintIndex = 0;
+setInterval(() => {
+  hintIndex = (hintIndex + 1) % searchHints.length;
+  hintSpans.forEach((s) => (s.style.transform = `translateY(-${hintIndex * 100}%)`));
+}, 2500);
+const searchInput = $("search-input");
+searchInput.addEventListener("input", () => {
+  searchInput.closest(".search").classList.toggle("has-value", !!searchInput.value);
+});
+
 // ---------- 资产显示/隐藏 ----------
 let hidden = false;
 $("eye").addEventListener("click", () => {
