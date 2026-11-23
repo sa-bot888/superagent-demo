@@ -36,8 +36,11 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
 .caret { width: 0; height: 0; border: 4px solid transparent; border-top-color: #fff; margin-top: 4px; }
 .search { flex: 1; display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.18); border-radius: 99px; padding: 7px 12px; }
 .search svg { width: 16px; height: 16px; opacity: .85; }
-.search input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; color: #fff; font-size: 13px; }
-.search input::placeholder { color: rgba(255,255,255,.75); }
+.search-field { position: relative; flex: 1; min-width: 0; height: 21px; }
+.search input { width: 100%; height: 21px; padding: 0; border: 0; outline: 0; background: none; color: #fff; font-size: 13px; line-height: 21px; }
+.search-hint { position: absolute; left: 0; right: 0; top: 0; height: 21px; overflow: hidden; pointer-events: none; }
+.search-hint span { display: block; height: 21px; line-height: 21px; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: rgba(255,255,255,.75); transition: transform .5s; }
+.search.has-value .search-hint { visibility: hidden; }
 .icon-btn { color: #fff; position: relative; padding: 2px; }
 .badge::after { content: ""; position: absolute; top: 1px; right: 1px; width: 7px; height: 7px; border-radius: 50%; background: #ff6a4d; border: 1.5px solid var(--brand); }
 
